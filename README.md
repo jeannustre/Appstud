@@ -1,5 +1,5 @@
 # Appstud
-
+
 This is a simple app meant as a technical interview for an iOS Developer position.
 
 ## Features
