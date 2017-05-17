@@ -19,7 +19,7 @@ This is a simple app meant as a technical interview for an iOS Developer positio
 - [ ] 12 - Give access to the repository before 17:00 (UTC+2)
 - [ ] 13 - Launches on devices and simulators running iOS 9+
 - [ ] 14 - No crashes
-- [ ] 15 - Portrait mode only
+- [x] 15 - Portrait mode only
 - [ ] 16 - Smartphones only
 - [ ] 17 - Responsive UI
 - [ ] 18 - Perfectly smooth (can't judge that myself)
