@@ -27,17 +27,19 @@ class MapViewController: UIViewController {
         // If the user location is available, display it on the map
         mapView?.isMyLocationEnabled = true
         mapView?.settings.myLocationButton = true
-        // Add a botton padding to compensate the tab bar
+        // Add a bottom padding to compensate the tab bar
         let barHeight = tabBarController?.tabBar.frame.height
         mapView?.padding = UIEdgeInsetsMake(0, 0, barHeight!, 0)
         // Add the map view to our main view
         view = mapView
-        placesProvider.getNearbyPlaces(mapView?.myLocation)
+        // Theoretically we can just wait for the first mapView.myLocation value change to load data
+        // TODO: Test this without location permissions
+        //placesProvider.getNearbyPlaces(mapView?.myLocation) { }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Register an observer for changed on mapView.myLocation
+        // Register an observer for changes on mapView.myLocation
         mapView?.addObserver(self, forKeyPath: "myLocation", options: .new, context: nil)
     }
     
@@ -54,16 +56,25 @@ class MapViewController: UIViewController {
     
 }
 
-
 //MARK: - GMSMapViewDelegate extension
 extension MapViewController: GMSMapViewDelegate {
     
+    // Observer on mapView.myLocation
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "myLocation" {
             print("Value for location changed! ")
-            print("\(mapView?.myLocation?.coordinate.latitude)::\(mapView?.myLocation?.coordinate.longitude)")
             // User location changed, query the places again
-            placesProvider.getNearbyPlaces(mapView?.myLocation)
+            placesProvider.getNearbyPlaces(mapView?.myLocation) {
+                if let places = self.placesProvider.places {
+                    self.mapView?.clear()
+                    for place in places {
+                        let marker = GMSMarker()
+                        marker.position = CLLocationCoordinate2D(latitude: place.latitude!, longitude: place.longitude!)
+                        marker.title = place.name
+                        marker.map = self.mapView
+                    }
+                }
+            }
         }
     }
     

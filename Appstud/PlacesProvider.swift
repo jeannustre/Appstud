@@ -20,16 +20,20 @@ fileprivate let mockLocation = CLLocation(latitude: 37.785, longitude: -122.406)
 
 class PlacesProvider {
     
-    func getNearbyPlaces(_ location: CLLocation?) {
+    var places: [Place]?
+    
+    func getNearbyPlaces(_ location: CLLocation?, completion: @escaping () -> ()) {
         let loc = (location != nil) ? CLLocation(latitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!) : mockLocation
         var urlString = "\(baseURL)\(format)?key=\(apiKey)&location=\(loc.coordinate.latitude),\(loc.coordinate.longitude)&radius=\(searchRadius)&type=\(searchType)"
         urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        /*Alamofire.request(urlString).responseObject { (response: DataResponse<PlaceResponse>) in
+        Alamofire.request(urlString).responseObject { (response: DataResponse<PlaceResponse>) in
             let placeResponse = response.result.value
             if let results = placeResponse?.results {
                 print("Got \(results.count) places")
+                self.places = results
             }
-        }*/
+            completion()
+        }
     }
     
 }
