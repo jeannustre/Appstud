@@ -9,6 +9,8 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import AlamofireImage
+import AlamofireObjectMapper
 
 class MapViewController: UIViewController {
     
@@ -68,15 +70,20 @@ extension MapViewController: GMSMapViewDelegate {
                 if let places = self.placesProvider.places {
                     self.mapView?.clear()
                     for place in places {
-                        let marker = GMSMarker()
+                        let marker = Marker()
                         marker.position = CLLocationCoordinate2D(latitude: place.latitude!, longitude: place.longitude!)
                         // Disable interaction as APPSTUD-04 requires
                         marker.isTappable = false
+                        // Set image to marker asynchronously
+                        self.placesProvider.add(photo: place.photo_reference, to: marker)
                         // Add marker to the map
                         marker.map = self.mapView
                     }
                 }
             }
+            // Center camera on user
+            let update = GMSCameraUpdate.setTarget((mapView?.myLocation?.coordinate)!, zoom: 15.0)
+            mapView?.moveCamera(update)
         }
     }
     

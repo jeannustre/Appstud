@@ -15,6 +15,7 @@ class Place: Mappable {
     var place_id: String?
     var latitude: Double?
     var longitude: Double?
+    var photo_reference: String?
     
     required init?(map: Map) {
         
@@ -26,6 +27,7 @@ class Place: Mappable {
         place_id <- map["place_id"]
         latitude <- map["geometry.location.lat"]
         longitude <- map["geometry.location.lng"]
+        photo_reference <- map["photos.0.photo_reference"]
     }
     
 }
