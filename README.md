@@ -11,7 +11,7 @@ This is a simple app meant as a technical interview for an iOS Developer positio
 - [x] 04 - No action is needed if the user taps on a pin
 - [x] 05 - The places will be displayed as a list with a full width picture and the name of the place as a label
 - [x] 06 - Pull-to-refresh on list
-- [ ] 07 - No action is needed if the user taps on a cell
+- [x] 07 - No action is needed if the user taps on a cell
 - [x] 08 - Matching cell design (somehow)
 - [x] 09 - Retrieve places from Google Places HTTP API : all bars within 2km / mock location if unavailable
 - [ ] 10 - If user location is denied, allow to search around a position through a text field
