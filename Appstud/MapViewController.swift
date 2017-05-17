@@ -70,7 +70,9 @@ extension MapViewController: GMSMapViewDelegate {
                     for place in places {
                         let marker = GMSMarker()
                         marker.position = CLLocationCoordinate2D(latitude: place.latitude!, longitude: place.longitude!)
-                        marker.title = place.name
+                        // Disable interaction as APPSTUD-04 requires
+                        marker.isTappable = false
+                        // Add marker to the map
                         marker.map = self.mapView
                     }
                 }
