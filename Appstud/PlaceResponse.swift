@@ -8,6 +8,7 @@
 
 import ObjectMapper
 
+// The model for a Place Response, ready to be mapped by AlamofireObjectMapper.
 class PlaceResponse: Mappable {
     
     var html_attributions: [String]?

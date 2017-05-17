@@ -64,7 +64,6 @@ extension MapViewController: GMSMapViewDelegate {
     // Observer on mapView.myLocation
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "myLocation" {
-            print("Value for location changed! ")
             // User location changed, query the places again
             placesProvider.getNearbyPlaces(mapView?.myLocation) {
                 if let places = self.placesProvider.places {
@@ -84,6 +83,9 @@ extension MapViewController: GMSMapViewDelegate {
             // Center camera on user
             let update = GMSCameraUpdate.setTarget((mapView?.myLocation?.coordinate)!, zoom: 15.0)
             mapView?.moveCamera(update)
+            // Pass location to second controller
+            let listController = tabBarController?.viewControllers?.last as! ListViewController
+            listController.location = mapView?.myLocation
         }
     }
     

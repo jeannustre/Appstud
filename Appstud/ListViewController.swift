@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class ListViewController: UIViewController {
 
+    //MARK: - IBOutlets
+    @IBOutlet var tableView: UITableView!
+    
+    //MARK: - Class properties
+    let placesProvider = PlacesProvider()
+    var location: CLLocation?
+    
+    //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Setup our delegate and datasource
+        tableView.delegate = self
+        tableView.dataSource = placesProvider
+        // Get rid of the nasty default left inset of cell separators
+        tableView.layoutMargins = UIEdgeInsets.zero
+        tableView.separatorInset = UIEdgeInsets.zero
+        // Bind the pull-to-refresh control, and trigger it once
+        self.setupRefreshControl()
+        self.refreshTable(sender: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +38,34 @@ class ListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Called by the pull-to-refresh control
+    func refreshTable(sender: UIRefreshControl?) {
+        placesProvider.getNearbyPlaces(location) {
+            if #available(iOS 10.0, *) {
+                self.tableView.refreshControl?.endRefreshing()
+            }
+            self.tableView.reloadData()
+        }
     }
-    */
+    
+    //MARK: - Private setup methods
+    private func setupRefreshControl() {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshTable(sender:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refresh
+        } else {
+            tableView.addSubview(refresh)
+        }
+    }
 
+}
+
+//MARK: - UITableViewDelegate Extension
+extension ListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130.0
+    }
+    
 }

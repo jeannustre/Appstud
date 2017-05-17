@@ -8,6 +8,7 @@
 
 import ObjectMapper
 
+// The model for a Place, ready to be mapped by AlamofireObjectMapper.
 class Place: Mappable {
     
     var name: String?

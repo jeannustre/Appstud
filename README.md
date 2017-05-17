@@ -9,12 +9,27 @@ This is a simple app meant as a technical interview for an iOS Developer positio
 - [x] 02 - The places will be displayed around you as pins on the map. (...)
 - [x] 03 - A button will allow the user to center the map on his location if available
 - [x] 04 - No action is needed if the user taps on a pin
-- [ ] 05 - The places will be displayed as a list with a full width picture and the name of the place as a label
-- [ ] 06 - Pull-to-refresh on list
+- [x] 05 - The places will be displayed as a list with a full width picture and the name of the place as a label
+- [x] 06 - Pull-to-refresh on list
 - [ ] 07 - No action is needed if the user taps on a cell
-- [ ] 08 - Matching the exact same design of the cell is a plus
+- [x] 08 - Matching cell design (somehow)
 - [x] 09 - Retrieve places from Google Places HTTP API : all bars within 2km / mock location if unavailable
 - [ ] 10 - If user location is denied, allow to search around a position through a text field
+- [ ] 11 - Sexy commits
+- [ ] 12 - Give access to the repository before 17:00 (UTC+2)
+- [ ] 13 - Launches on devices and simulators running iOS 9+
+- [ ] 14 - No crashes
+- [ ] 15 - Portrait mode only
+- [ ] 16 - Smartphones only
+- [ ] 17 - Responsive UI
+- [ ] 18 - Perfectly smooth (can't judge that myself)
+- [ ] 19 - User permissions handled elegantly
+- [ ] 20 - Unit tests
+- [ ] 21 - UI tests
+- [ ] 22 - Caching Places to browse offline
+- [ ] 23 - MVC pattern
+- [ ] 24 - +2 design patterns
+
 
 ## Getting Started
 
