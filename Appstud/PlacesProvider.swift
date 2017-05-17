@@ -39,7 +39,6 @@ class PlacesProvider: NSObject {
         Alamofire.request(urlString).responseObject { (response: DataResponse<PlaceResponse>) in
             let placeResponse = response.result.value
             if let results = placeResponse?.results {
-                print("Got \(results.count) places")
                 self.places = results
             }
             completion()

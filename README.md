@@ -15,19 +15,19 @@ This is a simple app meant as a technical interview for an iOS Developer positio
 - [x] 08 - Matching cell design (somehow)
 - [x] 09 - Retrieve places from Google Places HTTP API : all bars within 2km / mock location if unavailable
 - [ ] 10 - If user location is denied, allow to search around a position through a text field
-- [ ] 11 - Sexy commits
-- [ ] 12 - Give access to the repository before 17:00 (UTC+2)
-- [ ] 13 - Launches on devices and simulators running iOS 9+
+- [x] 11 - Sexy commits
+- [x] 12 - Give access to the repository before 17:00 (UTC+2)
+- [ ] 13 - Launches on devices and simulators running iOS 9+ (couldn't try)
 - [ ] 14 - No crashes
 - [x] 15 - Portrait mode only
 - [x] 16 - iPhone only
 - [ ] 17 - Responsive UI
 - [ ] 18 - Perfectly smooth (can't judge that myself)
-- [ ] 19 - User permissions handled elegantly
+- [x] 19 - User permissions handled elegantly
 - [ ] 20 - Unit tests
 - [ ] 21 - UI tests
 - [ ] 22 - Caching Places to browse offline
-- [ ] 23 - MVC pattern
+- [x] 23 - MVC pattern
 - [ ] 24 - +2 design patterns
 
 
