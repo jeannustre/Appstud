@@ -85,7 +85,7 @@
                             <constraint firstItem="pLg-sg-kXo" firstAttribute="top" secondItem="Jrq-E2-9D0" secondAttribute="bottom" id="su7-lb-rIX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="List" id="IOG-y9-Gc6"/>
+                    <tabBarItem key="tabBarItem" title="List" image="PlacesIcon" selectedImage="PlacesIcon-Filled" id="IOG-y9-Gc6"/>
                     <connections>
                         <outlet property="tableView" destination="Jrq-E2-9D0" id="hfx-3j-KPA"/>
                     </connections>
@@ -122,7 +122,7 @@
                             <constraint firstItem="LqG-Mx-p6l" firstAttribute="leading" secondItem="msi-S2-PWk" secondAttribute="leading" id="sMQ-MM-4ch"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="u6e-GO-GU5"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="MapIcon" selectedImage="MapIcon-Filled" id="u6e-GO-GU5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIw-7d-hi1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,4 +149,10 @@
             <point key="canvasLocation" x="-490" y="-546"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MapIcon" width="25" height="25"/>
+        <image name="MapIcon-Filled" width="25" height="25"/>
+        <image name="PlacesIcon" width="25" height="25"/>
+        <image name="PlacesIcon-Filled" width="25" height="25"/>
+    </resources>
 </document>
