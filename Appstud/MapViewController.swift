@@ -22,6 +22,8 @@ class MapViewController: UIViewController {
         // Initialize our Camera and Map
         camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 6)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera!)
+        // If the user location is available, display it on the map
+        mapView?.isMyLocationEnabled = true
         view = mapView
         
         /*let dummyMarker = GMSMarker()
