@@ -57,6 +57,9 @@ Open *Appstud.xcworkspace*, then build the app.
 
 * [Google Maps for iOS SDK]() -
 * [Google Places webservice]() - 
+* [Alamofire](https://github.com/Alamofire/Alamofire) - Elegant HTTP Networking in Swift
+* [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - Image component library for Alamofire
+* [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper) - An Alamofire extension which converts JSON response data into swift objects using ObjectMapper
 
 ## Author
 
