@@ -24,13 +24,12 @@ class MapViewController: UIViewController {
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera!)
         // If the user location is available, display it on the map
         mapView?.isMyLocationEnabled = true
+        mapView?.settings.myLocationButton = true
+        // Add a botton padding to compensate the tab bar
+        let barHeight = tabBarController?.tabBar.frame.height
+        mapView?.padding = UIEdgeInsetsMake(0, 0, barHeight!, 0)
+        // Add the map view to our mai  view
         view = mapView
-        
-        /*let dummyMarker = GMSMarker()
-        dummyMarker.position = CLLocationCoordinate2D(latitude: 0, longitude: 0)
-        dummyMarker.title = "Hello"
-        dummyMarker.snippet = "World"
-        dummyMarker.map = mapView*/
     }
 
     override func didReceiveMemoryWarning() {
