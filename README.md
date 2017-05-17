@@ -5,7 +5,7 @@ This is a simple app meant as a technical interview for an iOS Developer positio
 ## Features
 
 - [x] 00 - The navigation will follow the mentionned recommendations
-- [ ] 01 - The current user location will be displayed on the map if available
+- [x] 01 - The current user location will be displayed on the map if available
 - [ ] 02 - The places will be displayed around you as pins on the map. (...)
 - [ ] 03 - A button will allow the user to center the map on his location if available
 - [ ] 04 - No action is needed if the user taps on a pin
